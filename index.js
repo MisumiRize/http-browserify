@@ -34,7 +34,7 @@ http.request = function (params, cb) {
     }
     if (!params.port) params.port = params.protocol == 'https:' ? 443 : 80;
     
-    var req = new Request(new xhrHttp, params);
+    var req = new Request(new xhrHttp({mozSystem: true}), params);
     if (cb) req.on('response', cb);
     return req;
 };
